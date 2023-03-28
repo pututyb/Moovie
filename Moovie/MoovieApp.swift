@@ -6,12 +6,25 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct MoovieApp: App {
+    @StateObject var sessionAuth = SessionAuth()
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if sessionAuth.isLoggedIn {
+                ContentView()
+                    .environmentObject(sessionAuth)
+            } else {
+                LoginView()
+                    .environmentObject(sessionAuth)
+            }
         }
     }
 }

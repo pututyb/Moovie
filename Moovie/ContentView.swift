@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var sessionAuth: SessionAuth
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            UpcomingView()
+            Button("Log Out") {
+                sessionAuth.logout()
+            }
         }
-        .padding()
     }
 }
 
