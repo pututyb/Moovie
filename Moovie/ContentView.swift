@@ -16,6 +16,9 @@ struct ContentView: View {
             Button("Log Out") {
                 sessionAuth.logout()
             }
+            Button("Delete User and database related") {
+                sessionAuth.deleteUser()
+            }
         }
     }
 }

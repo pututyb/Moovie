@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+
 class SessionAuth: ObservableObject {
     @Published var user: User?
     @Published var isLoggedIn = false
@@ -67,6 +68,29 @@ class SessionAuth: ObservableObject {
             self.user = nil
         } catch let logOutError {
             print("Error Logout \(logOutError.localizedDescription)")
+        }
+    }
+    
+    
+    func deleteUser() {
+        if let uid = Auth.auth().currentUser?.uid {
+            let usersCollection = db.collection("users").document(uid)
+            
+            usersCollection.delete { error in
+                if let error = error {
+                    print("error deleting firestore data \(error.localizedDescription)")
+                } else {
+                    print("Firestore data deleting successfully.")
+                    Auth.auth().currentUser?.delete { error in
+                        if let error = error {
+                            print("error deleting user authentication data \(error.localizedDescription) ")
+                        } else {
+                            print("User authentication data deleted successfully.")
+                            self.isLoggedIn = false
+                        }
+                    }
+                }
+            }
         }
     }
     
