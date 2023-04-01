@@ -12,74 +12,73 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     
+    @State private var showError: Bool = false
+    
     var body: some View {
-        ZStack {
-            Color("bg")
-                .edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading) {
-                Text("MOOVIE")
-                    .font(.system(size: 44, weight: .bold))
-                    .foregroundColor(.white)
-                    .padding(.all)
+        NavigationStack {
+            ZStack {
+                Color("bg")
+                    .edgesIgnoringSafeArea(.all)
+                VStack(alignment: .leading) {
                     
-                
-                Text("Welcome Back,\nExplorer!")
-                    .font(.system(size: 22, weight: .semibold))
-                    .foregroundColor(.white)
-                    .padding(.all)
-
-                Text("Email Address")
-                    .foregroundColor(.white)
-                    .padding(.leading)
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.white, lineWidth: 1)
-                    .frame(maxWidth: .infinity, maxHeight: 60)
-                    .padding(.horizontal)
-                    .overlay(
-                        TextField("", text: $email)
+                    if sessionAuth.showError {
+                        RoundedRectangle(cornerRadius: 2)
+                            .fill(Color.red)
+                            .frame(maxWidth: .infinity, maxHeight: 40)
+                            .overlay(
+                                Text("Invalid email or password")
+                                    .foregroundColor(.white)
+                            )
                             .padding()
-                            .keyboardType(.emailAddress)
-                            .autocapitalization(.none)
-                            .foregroundColor(.white)
-                            .accentColor(.white)
-                            .textFieldStyle(PlainTextFieldStyle())
-                    )
-                
-                Text("Password")
-                    .foregroundColor(.white)
-                    .padding(.leading)
-                
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.white, lineWidth: 1)
-                    .frame(maxWidth: .infinity, maxHeight: 60)
-                    .padding(.horizontal)
-                    .overlay(
-                        SecureField("", text: $password)
-                            .padding()
-                            .foregroundColor(.white)
-                            .accentColor(.white)
-                            .textFieldStyle(PlainTextFieldStyle())
-                    )
-                Button(action: {
-                    sessionAuth.login(email: email, password: password)
-                }) {
-                    Text("Login")
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, maxHeight: 60)
-                        .background(Color.orange)
-                        .cornerRadius(10)
-                }
-                .padding()
-                
-                HStack(spacing: 0) {
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                    sessionAuth.showError = false
+                                }
+                            }
+                    }
                     Spacer()
-                    Text("Don't have account! ")
+                    
+                    Text("MOOVIE")
+                        .font(.system(size: 34, weight: .bold))
                         .foregroundColor(.white)
-                    Button(action: {
+                        .padding(.all)
                         
+                    
+                    Text("Welcome Back,\nExplorer!")
+                        .font(.system(size: 22, weight: .semibold))
+                        .foregroundColor(.white)
+                        .padding(.all)
+
+                    InputFieldView(title: "Email Address", placeholder: "Enter your email address", autocapitalization: .none ,text: $email)
+                    
+                    InputFieldView(title: "Password", placeholder: "Enter your password", autocapitalization: .none ,text: $password)
+                    
+                    Button(action: {
+                        sessionAuth.login(email: email, password: password) { success in
+                            if success {
+                                self.showError = false
+                            } else {
+                                self.showError = true
+                            }
+                        }
                     }) {
-                        Text("Sign Up")
-                            .foregroundColor(.orange)
+                        Text("Login")
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, maxHeight: 50)
+                            .background(Color.orange)
+                            .cornerRadius(10)
+                    }
+                    .padding()
+                    
+                    HStack(spacing: 0) {
+                        Spacer()
+                        Text("Don't have account! ")
+                            .foregroundColor(.white)
+                        NavigationLink(destination: SignupView()) {
+                            Text("Sign Up")
+                                .foregroundColor(.orange)
+                        }
+                        Spacer()
                     }
                     Spacer()
                 }

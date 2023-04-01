@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081D0AB029D7DF68002DEEE8 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */; };
 		0865A85E29D01402001DEC44 /* MoovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0865A85D29D01402001DEC44 /* MoovieApp.swift */; };
 		0865A86029D01402001DEC44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0865A85F29D01402001DEC44 /* ContentView.swift */; };
 		0865A86229D01406001DEC44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0865A86129D01406001DEC44 /* Assets.xcassets */; };
@@ -22,9 +23,11 @@
 		0899B9AA29D2B6EC00DAC65E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899B9A929D2B6EC00DAC65E /* Movie.swift */; };
 		0899B9AC29D2B76600DAC65E /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899B9AB29D2B76600DAC65E /* MovieViewModel.swift */; };
 		0899B9AE29D2BB3900DAC65E /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899B9AD29D2BB3900DAC65E /* UpcomingView.swift */; };
+		08C3A14229D6E39700EC3CE7 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C3A14129D6E39700EC3CE7 /* SignupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		0865A85A29D01402001DEC44 /* Moovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0865A85D29D01402001DEC44 /* MoovieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoovieApp.swift; sourceTree = "<group>"; };
 		0865A85F29D01402001DEC44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 		0899B9A929D2B6EC00DAC65E /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		0899B9AB29D2B76600DAC65E /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		0899B9AD29D2BB3900DAC65E /* UpcomingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingView.swift; sourceTree = "<group>"; };
+		08C3A14129D6E39700EC3CE7 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		081D0AAE29D7DF55002DEEE8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		0865A85129D01401001DEC44 = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +126,10 @@
 		0865A87829D02705001DEC44 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				081D0AAE29D7DF55002DEEE8 /* Components */,
 				0865A87D29D0614B001DEC44 /* LoginView.swift */,
 				0899B9AD29D2BB3900DAC65E /* UpcomingView.swift */,
+				08C3A14129D6E39700EC3CE7 /* SignupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08C3A14229D6E39700EC3CE7 /* SignupView.swift in Sources */,
 				0865A86029D01402001DEC44 /* ContentView.swift in Sources */,
 				0865A85E29D01402001DEC44 /* MoovieApp.swift in Sources */,
 				0899B9AE29D2BB3900DAC65E /* UpcomingView.swift in Sources */,
@@ -207,6 +222,7 @@
 				0865A87C29D05BF8001DEC44 /* SessionAuth.swift in Sources */,
 				0865A87E29D0614B001DEC44 /* LoginView.swift in Sources */,
 				0899B9AC29D2B76600DAC65E /* MovieViewModel.swift in Sources */,
+				081D0AB029D7DF68002DEEE8 /* InputFieldView.swift in Sources */,
 				0865A87A29D02738001DEC44 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

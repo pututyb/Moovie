@@ -14,6 +14,7 @@ import FirebaseFirestoreSwift
 class SessionAuth: ObservableObject {
     @Published var user: User?
     @Published var isLoggedIn = false
+    @Published var showError = false
     private var db = Firestore.firestore()
     
     init() {
@@ -49,14 +50,17 @@ class SessionAuth: ObservableObject {
         }
     }
     
-    func login(email: String, password: String) {
+    func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
             guard self != nil else { return }
             if error != nil {
-                print("Error signing in:", error!.localizedDescription)
+                print("Error signing in: \(error!.localizedDescription)")
+                self?.showError = true
+                completion(false)
             } else {
                 print("Signed in successfully")
                 self?.isLoggedIn = true
+                completion(true)
             }
         }
     }
