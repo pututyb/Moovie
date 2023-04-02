@@ -27,7 +27,7 @@ struct InputFieldView: View {
                 .keyboardType(keyboardType)
                 .autocapitalization(autocapitalization)
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: 4)
                         .stroke(Color.white, lineWidth: 1)
                 )
                 .frame(maxWidth: .infinity, maxHeight: 50)

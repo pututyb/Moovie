@@ -29,10 +29,12 @@ class SessionAuth: ObservableObject {
         }
     }
     
-    func createUser(email: String, password: String, name: String, wallet: Int) {
+    func createUser(email: String, password: String, name: String, wallet: Int, completion: @escaping (Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if error != nil {
                 print("error create user")
+                self.showError = true
+                completion(false)
             } else if let result = result {
                 print("User created successfully")
                 self.db.collection("users").document(result.user.uid).setData([
@@ -46,6 +48,8 @@ class SessionAuth: ObservableObject {
                         print("user data added to firestore successfully")
                     }
                 }
+                self.isLoggedIn = true
+                completion(true)
             }
         }
     }

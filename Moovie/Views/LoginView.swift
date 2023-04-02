@@ -66,7 +66,7 @@ struct LoginView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, maxHeight: 50)
                             .background(Color.orange)
-                            .cornerRadius(10)
+                            .cornerRadius(2)
                     }
                     .padding()
                     
@@ -90,5 +90,7 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+            .environmentObject(SessionAuth())
+        
     }
 }
