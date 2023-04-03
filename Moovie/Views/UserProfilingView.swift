@@ -8,21 +8,18 @@
 import SwiftUI
 
 struct UserProfilingView: View {
-    @EnvironmentObject var sessionAuth: SessionAuth
-    @State private var email = ""
-    @State private var password = ""
-    
     @State private var showError: Bool = false
     @Environment(\.presentationMode) var presentationMode
     
     @State private var tappedHelper = false
+    
     
     var body: some View {
         NavigationStack {
             ZStack {
                 Color("bg")
                     .edgesIgnoringSafeArea(.all)
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 0) {
                     HStack {
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
@@ -30,7 +27,7 @@ struct UserProfilingView: View {
                             Image(systemName: "arrow.left")
                                 .resizable()
                                 .foregroundColor(.white)
-                                .frame(width: 40, height: 40)
+                                .frame(width: 34, height: 34)
                                 .padding()
                         }
                     }
@@ -40,42 +37,26 @@ struct UserProfilingView: View {
                         .padding(.leading)
                         .font(.system(size: 24, weight: .semibold))
                     
-                    Button(action: {
-                        
-                    }) {
-                        Text("Horror")
-                    }
-                    .padding()
-                    .foregroundColor(tappedHelper ? .black : .white)
-                    .font(.system(size: 14, weight: .regular))
-                    .background(
-                        RoundedRectangle(cornerRadius: 4)
-                            .stroke(Color.white, lineWidth: 1)
-                            .background(tappedHelper ? Color.orange : Color("bg"))
-
-                            
-                    )
-                    .padding(.leading)
+                    GenreFieldView()
+                    
+                    Text("Movie Language\nYou Prefer?")
+                        .foregroundColor(.white)
+                        .padding(.leading)
+                        .font(.system(size: 24, weight: .semibold))
+                    
+                    LanguageFieldView()
                     
                     
                     Button(action: {
-                        sessionAuth.login(email: email, password: password) { success in
-                            if success {
-                                self.showError = false
-                            } else {
-                                self.showError = true
-                            }
-                        }
+                        //
                     }) {
-                        Text("Login")
+                        Text("Next")
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, maxHeight: 50)
                             .background(Color.orange)
                             .cornerRadius(2)
                     }
                     .padding()
-                    
-                    Spacer()
                 }
             }
         }
