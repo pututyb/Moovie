@@ -19,7 +19,7 @@ struct SignupView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var passwordMatch: Bool {
-        password == confirmPassword && password.isEmpty
+        !password.isEmpty && password == confirmPassword
     }
     
     var body: some View {

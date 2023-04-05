@@ -19,8 +19,13 @@ struct MoovieApp: App {
     var body: some Scene {
         WindowGroup {
             if sessionAuth.isLoggedIn {
-                ContentView()
-                    .environmentObject(sessionAuth)
+                if sessionAuth.user == nil {
+                    UserProfilingView(selectedLanguages: ["English"])
+                        .environmentObject(sessionAuth)
+                } else {
+                    ContentView()
+                        .environmentObject(sessionAuth)
+                }
             } else {
                 LoginView()
                     .environmentObject(sessionAuth)

@@ -16,28 +16,31 @@ struct LanguageFieldView: View {
         GridItem(.flexible(minimum: 80))
     ]
     
-    @State private var selectedLanguages: [String] = []
+    @State var selectedLanguages: [String]
     
     var body: some View {
         LazyVGrid(columns: layout, spacing: 16) {
             ForEach(languages, id: \.self) { language in
                 Button(action: {
-                    // Handle button tap here
+                    if selectedLanguages.contains(language) {
+                        selectedLanguages.removeAll(where: { $0 == language})
+                    } else {
+                        selectedLanguages.append(language)
+                    }
                 }) {
-                    Spacer()
                     Text(language)
-                        .frame(maxWidth: buttonWidth, maxHeight: 50)
                         .padding()
+                        .frame(maxWidth: buttonWidth, maxHeight: 50)
                         .foregroundColor(.white)
                         .accentColor(.white)
                         .background(
                             RoundedRectangle(cornerRadius: 4)
                                 .stroke(Color.white, lineWidth: 1)
+                                .background(selectedLanguages.contains(language) ? Color.orange : nil)
                             
                         )
                     Spacer()
                 }
-                .background(selectedLanguages.contains(language) ? Color.orange : nil)
             }
         }
         .padding(.horizontal, 32)
@@ -47,6 +50,6 @@ struct LanguageFieldView: View {
 
 struct LanguageFieldView_Previews: PreviewProvider {
     static var previews: some View {
-        LanguageFieldView()
+        LanguageFieldView(selectedLanguages: ["English"])
     }
 }

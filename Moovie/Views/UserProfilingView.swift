@@ -13,6 +13,8 @@ struct UserProfilingView: View {
     
     @State private var tappedHelper = false
     
+    @State var selectedLanguages: [String]
+    
     
     var body: some View {
         NavigationStack {
@@ -44,7 +46,7 @@ struct UserProfilingView: View {
                         .padding(.leading)
                         .font(.system(size: 24, weight: .semibold))
                     
-                    LanguageFieldView()
+                    LanguageFieldView(selectedLanguages: selectedLanguages)
                     
                     
                     Button(action: {
@@ -65,7 +67,7 @@ struct UserProfilingView: View {
 
 struct UserProfilingView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfilingView()
+        UserProfilingView(selectedLanguages: ["English"])
             .environmentObject(SessionAuth())
     }
 }
