@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct UserProfilingView: View {
-    @State private var showError: Bool = false
+    @ObservedObject var userProfiling = UserProfiling()
     @Environment(\.presentationMode) var presentationMode
-    
-    @State private var tappedHelper = false
-    
-    @State var selectedLanguages: [String]
     
     
     var body: some View {
@@ -46,11 +42,17 @@ struct UserProfilingView: View {
                         .padding(.leading)
                         .font(.system(size: 24, weight: .semibold))
                     
-                    LanguageFieldView(selectedLanguages: selectedLanguages)
+                    LanguageFieldView(userProfiling: userProfiling, selectedLanguages: $userProfiling.selectedLanguages)
                     
                     
                     Button(action: {
-                        //
+                        userProfiling.saveUserProfiling { success in
+                            if success {
+                                print("success add data")
+                            } else {
+                                print("error add data")
+                            }
+                        }
                     }) {
                         Text("Next")
                             .foregroundColor(.white)
@@ -67,7 +69,7 @@ struct UserProfilingView: View {
 
 struct UserProfilingView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfilingView(selectedLanguages: ["English"])
+        UserProfilingView()
             .environmentObject(SessionAuth())
     }
 }

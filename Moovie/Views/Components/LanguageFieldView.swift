@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LanguageFieldView: View {
+    @ObservedObject var userProfiling = UserProfiling()
+    @Binding var selectedLanguages: [String]
     let languages = ["Bahasa", "English", "Korean", "Japanese"]
     let buttonWidth: CGFloat = (UIScreen.main.bounds.width - 20 - 10 - 32) / 2
     
@@ -16,16 +18,14 @@ struct LanguageFieldView: View {
         GridItem(.flexible(minimum: 80))
     ]
     
-    @State var selectedLanguages: [String]
-    
     var body: some View {
         LazyVGrid(columns: layout, spacing: 16) {
             ForEach(languages, id: \.self) { language in
                 Button(action: {
-                    if selectedLanguages.contains(language) {
-                        selectedLanguages.removeAll(where: { $0 == language})
+                    if userProfiling.selectedLanguages.contains(language) {
+                        userProfiling.selectedLanguages.removeAll(where: { $0 == language})
                     } else {
-                        selectedLanguages.append(language)
+                        userProfiling.selectedLanguages.append(language)
                     }
                 }) {
                     Text(language)
@@ -50,6 +50,6 @@ struct LanguageFieldView: View {
 
 struct LanguageFieldView_Previews: PreviewProvider {
     static var previews: some View {
-        LanguageFieldView(selectedLanguages: ["English"])
+        LanguageFieldView(selectedLanguages: .constant([]))
     }
 }

@@ -20,7 +20,7 @@ struct MoovieApp: App {
         WindowGroup {
             if sessionAuth.isLoggedIn {
                 if sessionAuth.user == nil {
-                    UserProfilingView(selectedLanguages: ["English"])
+                    UserProfilingView()
                         .environmentObject(sessionAuth)
                 } else {
                     ContentView()
