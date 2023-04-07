@@ -9,7 +9,10 @@ import SwiftUI
 
 struct UserProfilingView: View {
     @ObservedObject var userProfiling = UserProfiling()
+    @ObservedObject var sessionAuth = SessionAuth()
     @Environment(\.presentationMode) var presentationMode
+    
+    @State private var isProfilCompleted = false
     
     
     var body: some View {
@@ -49,6 +52,7 @@ struct UserProfilingView: View {
                         userProfiling.saveUserProfiling { success in
                             if success {
                                 print("success add data")
+                                userProfiling.isProfileCompleted = true
                             } else {
                                 print("error add data")
                             }

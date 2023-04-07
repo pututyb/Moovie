@@ -15,4 +15,5 @@ struct User: Identifiable, Codable {
     var wallet: Double
     var favoriteGenres: [String] = []
     var preferredLanguages: [String] = []
+    var isProfileCompleted: Bool
 }

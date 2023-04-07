@@ -11,6 +11,7 @@ import FirebaseCore
 @main
 struct MoovieApp: App {
     @StateObject var sessionAuth = SessionAuth()
+    @StateObject var userProfiling = UserProfiling()
     
     init() {
         FirebaseApp.configure()
@@ -19,12 +20,13 @@ struct MoovieApp: App {
     var body: some Scene {
         WindowGroup {
             if sessionAuth.isLoggedIn {
-                if sessionAuth.user == nil {
-                    UserProfilingView()
-                        .environmentObject(sessionAuth)
-                } else {
+                if sessionAuth.isProfilCompleted {
                     ContentView()
                         .environmentObject(sessionAuth)
+                } else {
+                    UserProfilingView()
+                        .environmentObject(sessionAuth)
+                        .environmentObject(userProfiling)
                 }
             } else {
                 LoginView()

@@ -10,6 +10,7 @@ import Firebase
 
 class UserProfiling: ObservableObject {
     @Published var selectedLanguages: [String] = []
+    @Published var isProfileCompleted = false
     private var db = Firestore.firestore()
     
     func saveUserProfiling(completion: @escaping (Bool) -> Void) {
@@ -22,13 +23,15 @@ class UserProfiling: ObservableObject {
         let documentRef = db.collection("users").document(uid)
         
         documentRef.setData([
-            "selectedLanguages": selectedLanguages
+            "selectedLanguages": selectedLanguages,
+            "isProfileCompleted": true
         ], merge: true) { error in
             if let error = error {
                 print("Error saving user profiling data to firestore :\(error.localizedDescription)")
                 completion(false)
             } else {
                 print("User profiling data saved to firestore successfully.")
+                self.isProfileCompleted = true
                 completion(true)
             }
         }
