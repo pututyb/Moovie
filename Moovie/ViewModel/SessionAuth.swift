@@ -15,7 +15,6 @@ class SessionAuth: ObservableObject {
     @Published var user: User?
     @Published var isLoggedIn = false
     @Published var showError = false
-    @Published var isProfilCompleted = false
     private var db = Firestore.firestore()
     
     init() {
@@ -109,7 +108,6 @@ class SessionAuth: ObservableObject {
                 if let document = document, document.exists {
                     if let user = try? document.data(as: User.self) {
                         self.user = user
-                        self.isProfilCompleted = user.isProfileCompleted
                     }
                 } else {
                     print("document does not exist")

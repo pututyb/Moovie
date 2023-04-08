@@ -52,7 +52,6 @@ struct UserProfilingView: View {
                         userProfiling.saveUserProfiling { success in
                             if success {
                                 print("success add data")
-                                userProfiling.isProfileCompleted = true
                             } else {
                                 print("error add data")
                             }

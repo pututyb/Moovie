@@ -20,9 +20,10 @@ struct MoovieApp: App {
     var body: some Scene {
         WindowGroup {
             if sessionAuth.isLoggedIn {
-                if sessionAuth.isProfilCompleted {
+                if userProfiling.isProfileCompleted {
                     ContentView()
                         .environmentObject(sessionAuth)
+                        .environmentObject(userProfiling)
                 } else {
                     UserProfilingView()
                         .environmentObject(sessionAuth)
