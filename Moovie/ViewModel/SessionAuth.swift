@@ -15,7 +15,9 @@ class SessionAuth: ObservableObject {
     @Published var user: User?
     @Published var isLoggedIn = false
     @Published var showError = false
+    
     private var db = Firestore.firestore()
+    private var userId: String?
     
     init() {
         checkLoginStatus()

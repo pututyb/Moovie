@@ -48,20 +48,23 @@ struct UserProfilingView: View {
                     LanguageFieldView(userProfiling: userProfiling, selectedLanguages: $userProfiling.selectedLanguages)
                     
                     
-                    Button(action: {
-                        userProfiling.saveUserProfiling { success in
-                            if success {
-                                print("success add data")
-                            } else {
-                                print("error add data")
+                    NavigationLink(destination: ContentView(), isActive: $userProfiling.isProfileCompleted) {
+                        Button(action: {
+                            userProfiling.saveUserProfiling { success in
+                                if success {
+                                    print("success add data.")
+                                } else {
+                                    print("error add data")
+                                }
                             }
+                        }) {
+                            Text("Next")
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity, maxHeight: 50)
+                                .background(Color.orange)
+                                .cornerRadius(2)
                         }
-                    }) {
-                        Text("Next")
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity, maxHeight: 50)
-                            .background(Color.orange)
-                            .cornerRadius(2)
+                        .padding()
                     }
                     .padding()
                 }
@@ -74,5 +77,6 @@ struct UserProfilingView_Previews: PreviewProvider {
     static var previews: some View {
         UserProfilingView()
             .environmentObject(SessionAuth())
+            .environmentObject(UserProfiling())
     }
 }

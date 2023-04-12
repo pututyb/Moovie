@@ -10,38 +10,49 @@ import Firebase
 
 class UserProfiling: ObservableObject {
     @Published var selectedLanguages: [String] = []
-    @Published var isProfileCompleted: Bool =  false
+    @Published var isProfileCompleted =  false
+    
     private var db = Firestore.firestore()
     private var userId: String?
     
     init()  {
-            if let userId = Auth.auth().currentUser?.uid {
-                self.userId = userId
-                checkUserProfiling()
-            }
+        if let userId = Auth.auth().currentUser?.uid {
+            self.userId = userId
+            checkUserProfiling()
         }
+    }
     
-    func checkUserProfiling() -> Bool {
-        guard let userId = Auth.auth().currentUser?.uid else {
-            return false
+    
+    
+    func checkUserProfiling() {
+        guard let userId = userId else {
+            return
         }
         
         db.collection("users").document(userId).getDocument { snapshot, error in
             if let error = error {
-                print("Error getting user profiling: \(error.localizedDescription)")
+                print("error getting user profiling: \(error.localizedDescription)")
             } else if let snapshot = snapshot, snapshot.exists {
                 let data = snapshot.data()
                 if let isProfileCompleted = data?["isProfileCompleted"] as? Bool {
+                    DispatchQueue.main.async {
                         self.isProfileCompleted = isProfileCompleted
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.isProfileCompleted = false
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.isProfileCompleted = true
                 }
             }
         }
-        return isProfileCompleted
     }
     
     
     func saveUserProfiling(completion: @escaping (Bool) -> Void) {
-        print(selectedLanguages)
         guard let uid = Auth.auth().currentUser?.uid else {
             completion(false)
             return
