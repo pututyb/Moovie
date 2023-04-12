@@ -20,6 +20,7 @@ struct ContentView: View {
                 sessionAuth.deleteUser()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
