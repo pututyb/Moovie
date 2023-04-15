@@ -12,6 +12,7 @@ struct InputFieldView: View {
     var placeholder: String
     var keyboardType: UIKeyboardType = .default
     var autocapitalization: UITextAutocapitalizationType = .none
+    var isSecure: Bool = false
     @Binding var text: String
     
     var body: some View {
@@ -20,18 +21,33 @@ struct InputFieldView: View {
                 .foregroundColor(.white)
                 .padding(.leading)
             
-            TextField(placeholder, text: $text)
-                .padding()
-                .foregroundColor(.white)
-                .accentColor(.white)
-                .keyboardType(keyboardType)
-                .autocapitalization(autocapitalization)
-                .background(
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color.white, lineWidth: 1)
-                )
-                .frame(maxWidth: .infinity, maxHeight: 50)
-                .padding(.horizontal)
+            if isSecure {
+                SecureField(placeholder, text: $text)
+                    .padding()
+                    .foregroundColor(.white)
+                    .accentColor(.white)
+                    .keyboardType(keyboardType)
+                    .autocapitalization(autocapitalization)
+                    .background(
+                        RoundedRectangle(cornerRadius: 4)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                    .frame(maxWidth: .infinity, maxHeight: 50)
+                    .padding(.horizontal)
+            } else {
+                TextField(placeholder, text: $text)
+                    .padding()
+                    .foregroundColor(.white)
+                    .accentColor(.white)
+                    .keyboardType(keyboardType)
+                    .autocapitalization(autocapitalization)
+                    .background(
+                        RoundedRectangle(cornerRadius: 4)
+                            .stroke(Color.white, lineWidth: 1)
+                    )
+                    .frame(maxWidth: .infinity, maxHeight: 50)
+                    .padding(.horizontal)
+            }
         }
     }
 }

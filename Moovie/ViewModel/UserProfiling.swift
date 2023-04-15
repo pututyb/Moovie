@@ -10,6 +10,7 @@ import Firebase
 
 class UserProfiling: ObservableObject {
     @Published var selectedLanguages: [String] = []
+    @Published var selectedGenres: [String] = []
     @Published var isProfileCompleted =  false
     
     private var db = Firestore.firestore()
@@ -62,6 +63,7 @@ class UserProfiling: ObservableObject {
         
         documentRef.setData([
             "selectedLanguages": selectedLanguages,
+            "selectedGenres": selectedGenres,
             "isProfileCompleted": true
         ], merge: true) { error in
             if let error = error {

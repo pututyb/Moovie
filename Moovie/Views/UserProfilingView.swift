@@ -21,24 +21,13 @@ struct UserProfilingView: View {
                 Color("bg")
                     .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading, spacing: 0) {
-                    HStack {
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image(systemName: "arrow.left")
-                                .resizable()
-                                .foregroundColor(.white)
-                                .frame(width: 34, height: 34)
-                                .padding()
-                        }
-                    }
                     
                     Text("Select Your\nFavorite Genre")
                         .foregroundColor(.white)
                         .padding(.leading)
                         .font(.system(size: 24, weight: .semibold))
                     
-                    GenreFieldView()
+                    GenreFieldView(userProfiling: userProfiling, selectedGenres: $userProfiling.selectedGenres)
                     
                     Text("Movie Language\nYou Prefer?")
                         .foregroundColor(.white)
@@ -48,13 +37,18 @@ struct UserProfilingView: View {
                     LanguageFieldView(userProfiling: userProfiling, selectedLanguages: $userProfiling.selectedLanguages)
                     
                     Button {
-                        isProfilCompleted = true
+                        userProfiling.saveUserProfiling { success in
+                            if success {
+                                isProfilCompleted = true
+                            }
+                        }
                     } label: {
                         Text("Next")
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity, maxHeight: 50)
                             .background(Color.orange)
                             .cornerRadius(2)
+                            .padding(.horizontal)
                     }
                     .padding()
                 }

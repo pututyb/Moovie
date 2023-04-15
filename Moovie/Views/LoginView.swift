@@ -51,7 +51,7 @@ struct LoginView: View {
 
                     InputFieldView(title: "Email Address", placeholder: "Enter your email address", autocapitalization: .none ,text: $email)
                     
-                    InputFieldView(title: "Password", placeholder: "Enter your password", autocapitalization: .none ,text: $password)
+                    InputFieldView(title: "Password", placeholder: "Enter your password", autocapitalization: .none, isSecure: true ,text: $password)
                     
                     Button(action: {
                         sessionAuth.login(email: email, password: password) { success in
