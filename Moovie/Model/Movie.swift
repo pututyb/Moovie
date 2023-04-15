@@ -14,9 +14,16 @@ struct MovieData: Codable {
         let overview: String
         let release_date: String
         let popularity: Double
-        let poster_path: String
+        let poster_path: String?
         let vote_average: Double
         let vote_count: Int
+        
+        var posterURL: URL? {
+            guard let posterPath = poster_path else {
+                return nil
+            }
+            return URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
+        }
     }
     
     let results: [Movie]

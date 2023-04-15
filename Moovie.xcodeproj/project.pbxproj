@@ -23,6 +23,7 @@
 		0865A87C29D05BF8001DEC44 /* SessionAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0865A87B29D05BF8001DEC44 /* SessionAuth.swift */; };
 		0865A87E29D0614B001DEC44 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0865A87D29D0614B001DEC44 /* LoginView.swift */; };
 		08706ED029D9670600EDAC10 /* UserProfilingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08706ECF29D9670600EDAC10 /* UserProfilingView.swift */; };
+		0884D11A29EA5A660053DBCA /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0884D11929EA5A660053DBCA /* URLImage */; };
 		0899B9AA29D2B6EC00DAC65E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899B9A929D2B6EC00DAC65E /* Movie.swift */; };
 		0899B9AC29D2B76600DAC65E /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899B9AB29D2B76600DAC65E /* MovieViewModel.swift */; };
 		0899B9AE29D2BB3900DAC65E /* UpcomingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899B9AD29D2BB3900DAC65E /* UpcomingView.swift */; };
@@ -59,6 +60,7 @@
 				0865A86D29D016AE001DEC44 /* FirebaseAuth in Frameworks */,
 				0865A87329D016AE001DEC44 /* FirebaseStorage in Frameworks */,
 				0865A86F29D016AE001DEC44 /* FirebaseFirestore in Frameworks */,
+				0884D11A29EA5A660053DBCA /* URLImage in Frameworks */,
 				0865A87129D016AE001DEC44 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +169,7 @@
 				0865A86E29D016AE001DEC44 /* FirebaseFirestore */,
 				0865A87029D016AE001DEC44 /* FirebaseFirestoreSwift */,
 				0865A87229D016AE001DEC44 /* FirebaseStorage */,
+				0884D11929EA5A660053DBCA /* URLImage */,
 			);
 			productName = Moovie;
 			productReference = 0865A85A29D01402001DEC44 /* Moovie.app */;
@@ -198,6 +201,7 @@
 			mainGroup = 0865A85129D01401001DEC44;
 			packageReferences = (
 				0865A86B29D016AE001DEC44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0884D11829EA5A660053DBCA /* XCRemoteSwiftPackageReference "url-image" */,
 			);
 			productRefGroup = 0865A85B29D01402001DEC44 /* Products */;
 			projectDirPath = "";
@@ -450,6 +454,14 @@
 				kind = branch;
 			};
 		};
+		0884D11829EA5A660053DBCA /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -472,6 +484,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0865A86B29D016AE001DEC44 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		0884D11929EA5A660053DBCA /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0884D11829EA5A660053DBCA /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
