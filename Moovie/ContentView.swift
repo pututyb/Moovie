@@ -12,15 +12,39 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            UpcomingView()
-            Button("Log Out") {
-                sessionAuth.logout()
+            HStack {
+                Image(systemName: "person")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 40, height: 40)
+                    .clipShape(Circle())
+                    .padding(.leading)
+                
+                Spacer()
+                
+                VStack(alignment: .trailing) {
+                    Text("John Doe")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                        .padding(.trailing)
+                    
+                    HStack {
+                        Image(systemName: "creditcard")
+                            .foregroundColor(.secondary)
+                            .padding(.trailing)
+                        
+                        Text("$100")
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.trailing)
+                }
+                Spacer()
             }
-            Button("Delete User and database related") {
-                sessionAuth.deleteUser()
-            }
+            .padding()
+            .background(Color.orange)
+            
+            Spacer()
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 

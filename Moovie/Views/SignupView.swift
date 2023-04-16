@@ -69,9 +69,9 @@ struct SignupView: View {
                     
                     InputFieldView(title: "Email Address", placeholder: "Enter your email address", keyboardType: .emailAddress, autocapitalization: .none, text: $email)
                     
-                    InputFieldView(title: "Password", placeholder: "Enter your password", text: $password)
+                    InputFieldView(title: "Password", placeholder: "Enter your password", isSecure: true ,text: $password)
                     
-                    InputFieldView(title: "Confirm Password", placeholder: "Re-enter your password", text: $confirmPassword)
+                    InputFieldView(title: "Confirm Password", placeholder: "Re-enter your password", isSecure: true ,text: $confirmPassword)
                     
                     Button(action: {
                         sessionAuth.createUser(email: email, password: password, name: name, wallet: 0) { success in
