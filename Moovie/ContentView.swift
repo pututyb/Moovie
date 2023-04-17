@@ -11,39 +11,47 @@ struct ContentView: View {
     @EnvironmentObject var sessionAuth: SessionAuth
     
     var body: some View {
-        VStack {
-            HStack {
-                Image(systemName: "person")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 40, height: 40)
-                    .clipShape(Circle())
-                    .padding(.leading)
+        ZStack {
+            Color("bg")
+                .edgesIgnoringSafeArea(.all)
+            
+            VStack {
+                HStack {
+                    Image(systemName: "person")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 40, height: 40)
+                        .clipShape(Circle())
+                        .padding(.leading)
+                    
+                    
+                    VStack(alignment: .leading) {
+                        Text("Putut Yusri Bahtiar")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                            .padding(.leading)
+                        
+                        HStack {
+                            Image(systemName: "creditcard")
+                                .foregroundColor(.white)
+                            
+                            Text("IDR 22.523")
+                                .foregroundColor(.white)
+                        }
+                        .padding(.leading)
+                    }
+                    Spacer()
+                }
+                .padding()
+                .background(Color.orange)
                 
                 Spacer()
                 
-                VStack(alignment: .trailing) {
-                    Text("John Doe")
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .padding(.trailing)
-                    
-                    HStack {
-                        Image(systemName: "creditcard")
-                            .foregroundColor(.secondary)
-                            .padding(.trailing)
-                        
-                        Text("$100")
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.trailing)
-                }
+                UpcomingView()
+                    .padding()
+                
                 Spacer()
             }
-            .padding()
-            .background(Color.orange)
-            
-            Spacer()
         }
     }
 }
