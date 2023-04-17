@@ -15,7 +15,7 @@ struct ContentView: View {
             Color("bg")
                 .edgesIgnoringSafeArea(.all)
             
-            VStack {
+            VStack(alignment: .leading) {
                 HStack {
                     Image(systemName: "person")
                         .resizable()
@@ -45,11 +45,15 @@ struct ContentView: View {
                 .padding()
                 .background(Color.orange)
                 
-                Spacer()
-                
-                UpcomingView()
+                Text("Now Playing")
+                    .foregroundColor(.white)
                     .padding()
-                
+                NowPlayingView()
+                Text("Coming Soon")
+                    .foregroundColor(.white)
+                    .padding()
+                UpcomingView()
+                    .padding(.leading)
                 Spacer()
             }
         }

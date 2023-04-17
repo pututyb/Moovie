@@ -24,18 +24,19 @@ struct UpcomingView: View {
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(width: 200, height: 200)
+                                    .frame(width: 100, height: 150)
+                                    .cornerRadius(8)
                             })
                         } else {
                             Image(systemName: "film")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                                .frame(width: 100, height: 100)
+                                .frame(width: 100, height: 150)
                         }
                         
     //                    Text("\(movie.vote_count)")
                     }
-                    .padding()
+                    .padding(.leading)
                 }
             }
         }
