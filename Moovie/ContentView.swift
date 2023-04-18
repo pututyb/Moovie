@@ -47,14 +47,22 @@ struct ContentView: View {
                 
                 Text("Now Playing")
                     .foregroundColor(.white)
-                    .padding()
+                    .padding(.leading)
                 NowPlayingView()
+                    .padding()
+                
+                Text("Browse Movie")
+                    .foregroundColor(.white)
+                    .padding(.leading)
+                GenresView()
                 Text("Coming Soon")
                     .foregroundColor(.white)
                     .padding()
                 UpcomingView()
                     .padding(.leading)
                 Spacer()
+                
+                
             }
         }
     }

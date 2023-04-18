@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		081D0AB029D7DF68002DEEE8 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */; };
 		0835749429DAADC20036DE94 /* LanguageFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835749329DAADC20036DE94 /* LanguageFieldView.swift */; };
+		0852E08429ED64AD00E10CA2 /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852E08329ED64AD00E10CA2 /* GenresView.swift */; };
 		085C86EA29D9CF0300B38379 /* GenreFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085C86E929D9CF0300B38379 /* GenreFieldView.swift */; };
 		0865A85E29D01402001DEC44 /* MoovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0865A85D29D01402001DEC44 /* MoovieApp.swift */; };
 		0865A86029D01402001DEC44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0865A85F29D01402001DEC44 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		0835749329DAADC20036DE94 /* LanguageFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageFieldView.swift; sourceTree = "<group>"; };
+		0852E08329ED64AD00E10CA2 /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
 		085C86E929D9CF0300B38379 /* GenreFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFieldView.swift; sourceTree = "<group>"; };
 		0865A85A29D01402001DEC44 /* Moovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0865A85D29D01402001DEC44 /* MoovieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoovieApp.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				08C3A14129D6E39700EC3CE7 /* SignupView.swift */,
 				08706ECF29D9670600EDAC10 /* UserProfilingView.swift */,
 				088446A429ED309B0092D290 /* NowPlayingView.swift */,
+				0852E08329ED64AD00E10CA2 /* GenresView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				0899B9AA29D2B6EC00DAC65E /* Movie.swift in Sources */,
 				0865A87C29D05BF8001DEC44 /* SessionAuth.swift in Sources */,
 				0865A87E29D0614B001DEC44 /* LoginView.swift in Sources */,
+				0852E08429ED64AD00E10CA2 /* GenresView.swift in Sources */,
 				0899B9AC29D2B76600DAC65E /* MovieViewModel.swift in Sources */,
 				088446A529ED309B0092D290 /* NowPlayingView.swift in Sources */,
 				081D0AB029D7DF68002DEEE8 /* InputFieldView.swift in Sources */,
