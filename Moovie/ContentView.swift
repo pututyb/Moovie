@@ -11,55 +11,57 @@ struct ContentView: View {
     @EnvironmentObject var sessionAuth: SessionAuth
     
     var body: some View {
-        ZStack {
-            Color("bg")
-                .edgesIgnoringSafeArea(.all)
-            
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "person")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
-                        .clipShape(Circle())
-                        .padding(.leading)
-                    
-                    
-                    VStack(alignment: .leading) {
-                        Text("Putut Yusri Bahtiar")
-                            .font(.headline)
-                            .foregroundColor(.primary)
+        NavigationView {
+            ZStack {
+                Color("bg")
+                    .edgesIgnoringSafeArea(.all)
+                
+                VStack(alignment: .leading) {
+                    HStack {
+                        Image(systemName: "person")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
                             .padding(.leading)
                         
-                        HStack {
-                            Image(systemName: "creditcard")
-                                .foregroundColor(.white)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Putut Yusri Bahtiar")
+                                .font(.headline)
+                                .foregroundColor(.primary)
+                                .padding(.leading)
                             
-                            Text("IDR 22.523")
-                                .foregroundColor(.white)
+                            HStack {
+                                Image(systemName: "creditcard")
+                                    .foregroundColor(.white)
+                                
+                                Text("IDR 22.523")
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.leading)
                         }
-                        .padding(.leading)
+                        Spacer()
                     }
+                    .padding()
+                    .background(Color.orange)
+                    
+                    Text("Now Playing")
+                        .foregroundColor(.white)
+                        .padding()
+                    NowPlayingView()
+                    Text("Browse Movie")
+                        .foregroundColor(.white)
+                        .padding()
+                    GenresView()
+                    Text("Coming Soon")
+                        .foregroundColor(.white)
+                        .padding()
+                    UpcomingView()
                     Spacer()
+                    
+                    
                 }
-                .padding()
-                .background(Color.orange)
-                
-                Text("Now Playing")
-                    .foregroundColor(.white)
-                    .padding()
-                NowPlayingView()
-                Text("Browse Movie")
-                    .foregroundColor(.white)
-                    .padding()
-                GenresView()
-                Text("Coming Soon")
-                    .foregroundColor(.white)
-                    .padding()
-                UpcomingView()
-                Spacer()
-                
-                
             }
         }
     }
