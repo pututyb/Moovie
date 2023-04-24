@@ -60,7 +60,26 @@ struct ContentView: View {
                     UpcomingView()
                     Spacer()
                     
-                    
+                    HStack(spacing: 100) {
+                        Image(systemName: "arrow.backward")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 35, height: 35)
+                        
+                        Image(systemName: "house")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 35, height: 35)
+                        
+                        Image(systemName: "person")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 35, height: 35)
+                    }
+                    .padding(.top)
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .background(Color.orange)
                 }
             }
         }
