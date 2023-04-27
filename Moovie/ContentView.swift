@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var sessionAuth: SessionAuth
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
@@ -27,7 +28,7 @@ struct ContentView: View {
                         
                         
                         VStack(alignment: .leading) {
-                            Text("Putut Yusri Bahtiar")
+                            Text("Putut Yusri Bahtiar \(sessionAuth.user?.name ?? "-")")
                                 .font(.headline)
                                 .foregroundColor(.primary)
                                 .padding(.leading)
@@ -36,7 +37,7 @@ struct ContentView: View {
                                 Image(systemName: "creditcard")
                                     .foregroundColor(.white)
                                 
-                                Text("IDR 22.523")
+                                Text("IDR 2000")
                                     .foregroundColor(.white)
                             }
                             .padding(.leading)
@@ -61,26 +62,52 @@ struct ContentView: View {
                     Spacer()
                     
                     HStack(spacing: 100) {
-                        Image(systemName: "arrow.backward")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 35, height: 35)
+                        Button {
+                            //
+                        } label: {
+                            Image(systemName: "arrow.backward")
+                                .resizable()
+                                .padding(.top)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 35, height: 35)
+                        }
+                        .gesture(TapGesture(count: 2)
+                            .onEnded {
+                                exit(0)
+                            }
+                        )
                         
-                        Image(systemName: "house")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 35, height: 35)
                         
-                        Image(systemName: "person")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 35, height: 35)
+                        Button {
+                            print("\(sessionAuth.user?.name ?? "Unkown")")
+                        } label: {
+                            Image(systemName: "house")
+                                .resizable()
+                                .padding(.top)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 35, height: 35)
+                        }
+                        
+                        
+                        Button {
+                            //
+                        } label: {
+                            Image(systemName: "person")
+                                .resizable()
+                                .padding(.top)
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 35, height: 35)
+                        }
+                        
                     }
-                    .padding(.top)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(.white)
                     .background(Color.orange)
                 }
+            }
+            .navigationBarBackButtonHidden(false)
+            .onAppear {
+                sessionAuth.fetchUser()
             }
         }
     }
@@ -89,5 +116,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(SessionAuth())
     }
 }

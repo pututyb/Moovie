@@ -16,9 +16,6 @@ struct UpcomingView: View {
             HStack {
                 ForEach(viewModel.results, id: \.id) { movie in
                     HStack {
-    //                    Text(movie.title)
-    //                    Text(movie.release_date)
-    //                    Text("\(movie.popularity)")
                         if let posterURL = movie.posterURL {
                             URLImage(posterURL, content: { image in
                                 image
@@ -33,8 +30,6 @@ struct UpcomingView: View {
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 100, height: 150)
                         }
-                        
-    //                    Text("\(movie.vote_count)")
                     }
                     .padding(.leading)
                 }

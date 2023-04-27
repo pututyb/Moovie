@@ -11,6 +11,8 @@ import URLImage
 struct MovieDetailView: View {
     let movie: MovieData.Movie
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ZStack {
             Color("bg")
@@ -60,11 +62,16 @@ struct MovieDetailView: View {
                                 .foregroundColor(.white)
                         }
                         
+                        Button("back to root") {
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        
                         Spacer()
                     }
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
