@@ -13,7 +13,7 @@ struct User: Identifiable, Codable {
     var name: String
     var email: String
     var wallet: Double
-    var favoriteGenres: [String] = []
-    var preferredLanguages: [String] = []
+    var selectedGenres: [String] = []
+    var selectedLanguages: [String] = []
     var isProfileCompleted: Bool
 }

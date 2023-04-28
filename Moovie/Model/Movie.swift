@@ -11,6 +11,7 @@ struct MovieData: Codable {
     struct Movie: Codable, Identifiable {
         let id: Int
         let title: String
+        let genre_ids: [Int]
         let overview: String
         let release_date: String
         let popularity: Double

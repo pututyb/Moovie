@@ -108,16 +108,20 @@ class SessionAuth: ObservableObject {
         if let uid = Auth.auth().currentUser?.uid {
             db.collection("users").document(uid).getDocument { (document, error) in
                 if let document = document, document.exists {
-                    if let user = try? document.data(as: User.self) {
+                    do {
+                        let user = try document.data(as: User.self)
                         DispatchQueue.main.async {
                             self.user = user
                         }
-                        print("user: \(user)")
+                    } catch {
+                        print("error: \(error)")
                     }
                 } else {
                     print("document does not exist")
                 }
             }
+        } else {
+            print("no user uid, not logged in")
         }
     }
 }

@@ -28,7 +28,7 @@ struct ContentView: View {
                         
                         
                         VStack(alignment: .leading) {
-                            Text("Putut Yusri Bahtiar \(sessionAuth.user?.name ?? "-")")
+                            Text("\(sessionAuth.user?.name ?? "-")")
                                 .font(.headline)
                                 .foregroundColor(.primary)
                                 .padding(.leading)
@@ -37,7 +37,7 @@ struct ContentView: View {
                                 Image(systemName: "creditcard")
                                     .foregroundColor(.white)
                                 
-                                Text("IDR 2000")
+                                Text("IDR \(sessionAuth.user?.wallet ?? 0.0)")
                                     .foregroundColor(.white)
                             }
                             .padding(.leading)
@@ -79,7 +79,7 @@ struct ContentView: View {
                         
                         
                         Button {
-                            print("\(sessionAuth.user?.name ?? "Unkown")")
+                            //
                         } label: {
                             Image(systemName: "house")
                                 .resizable()
