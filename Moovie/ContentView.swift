@@ -63,7 +63,7 @@ struct ContentView: View {
                     
                     HStack(spacing: 100) {
                         Button {
-                            //
+                            exit(0)
                         } label: {
                             Image(systemName: "arrow.backward")
                                 .resizable()
