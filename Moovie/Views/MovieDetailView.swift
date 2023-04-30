@@ -91,6 +91,17 @@ struct MovieDetailView: View {
                     }
                 }
                 
+                Button {
+                    //
+                } label: {
+                    Text("Continue To Book")
+                        .frame(width: 340, height: 50)
+                        .background(Color.orange)
+                        .foregroundColor(.white)
+                        .cornerRadius(4)
+                }
+
+                
                 Spacer()
                 HStack(spacing: 100) {
                     Button {
