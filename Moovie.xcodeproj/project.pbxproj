@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		081D0AB029D7DF68002DEEE8 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */; };
 		0835749429DAADC20036DE94 /* LanguageFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835749329DAADC20036DE94 /* LanguageFieldView.swift */; };
+		083ACD4929FFE9A000601E57 /* Cinema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083ACD4829FFE9A000601E57 /* Cinema.swift */; };
 		0852E08429ED64AD00E10CA2 /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852E08329ED64AD00E10CA2 /* GenresView.swift */; };
 		085C86EA29D9CF0300B38379 /* GenreFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085C86E929D9CF0300B38379 /* GenreFieldView.swift */; };
 		0865A85E29D01402001DEC44 /* MoovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0865A85D29D01402001DEC44 /* MoovieApp.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		0835749329DAADC20036DE94 /* LanguageFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageFieldView.swift; sourceTree = "<group>"; };
+		083ACD4829FFE9A000601E57 /* Cinema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinema.swift; sourceTree = "<group>"; };
 		0852E08329ED64AD00E10CA2 /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
 		085C86E929D9CF0300B38379 /* GenreFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreFieldView.swift; sourceTree = "<group>"; };
 		0865A85A29D01402001DEC44 /* Moovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 			children = (
 				0865A87929D02738001DEC44 /* User.swift */,
 				0899B9A929D2B6EC00DAC65E /* Movie.swift */,
+				083ACD4829FFE9A000601E57 /* Cinema.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				08C3A14229D6E39700EC3CE7 /* SignupView.swift in Sources */,
 				0865A86029D01402001DEC44 /* ContentView.swift in Sources */,
 				0865A85E29D01402001DEC44 /* MoovieApp.swift in Sources */,
+				083ACD4929FFE9A000601E57 /* Cinema.swift in Sources */,
 				089217A429FE4F0A0097BFBE /* SelectCinemaAndDateView.swift in Sources */,
 				085C86EA29D9CF0300B38379 /* GenreFieldView.swift in Sources */,
 				0899B9AE29D2BB3900DAC65E /* UpcomingView.swift in Sources */,
