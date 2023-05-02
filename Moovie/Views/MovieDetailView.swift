@@ -91,9 +91,7 @@ struct MovieDetailView: View {
                     }
                 }
                 
-                Button {
-                    //
-                } label: {
+                NavigationLink(destination: ChooseSeatView(movie: movie)) {
                     Text("Continue To Book")
                         .frame(width: 340, height: 50)
                         .background(Color.orange)
