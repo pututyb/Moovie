@@ -37,10 +37,24 @@ struct ChooseSeatView: View {
                     Text(movie.title)
                         .foregroundColor(.white)
                     
-                    Image(systemName: "film")
-                        .foregroundColor(.white)
+                    if let backdropURL = movie.backdropPath {
+                        URLImage(backdropURL, content: { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 40, height: 40)
+                        })
+                    } else {
+                        Image(systemName: "film")
+                            .resizable()
+                            .foregroundColor(.gray)
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 40, height: 40)
+                    }
+
                 }
                 .padding()
+                
                 
                 Image("screen")
                 
