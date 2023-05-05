@@ -32,6 +32,69 @@ struct CheckoutView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
+                
+                HStack(spacing: 30) {
+                    Image(systemName: "film")
+                        .resizable()
+                        .frame(width: 90, height: 90)
+                        .foregroundColor(.white)
+                    
+                    VStack {
+                        Text("Name Of Film")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                        Text("Action Horror")
+                            .foregroundColor(.white)
+                            .font(.body)
+                        Text("Rating 7/10")
+                            .foregroundColor(.white)
+                            .font(.footnote)
+                    }
+                }
+                
+                Divider()
+                    .frame(height: 2)
+                    .background(Color.white)
+                    .opacity(0.8)
+                    .padding()
+                
+                VStack(spacing: 16) {
+                    createRow("ID Order", "22081996")
+                    createRow("Seat Number", "B3, B4")
+                    createRow("Price", "Rp 50.000 x 2")
+                    createRow("Fee", "Rp 2.500 x 2")
+                    createRow("Total", "Rp 105.000")
+                }
+                .foregroundColor(.white)
+                
+                Divider()
+                    .frame(height: 2)
+                    .background(Color.white)
+                    .opacity(0.8)
+                    .padding()
+                
+                HStack {
+                    Text("Your Wallet")
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 20)
+                    Text("Rp 480.500")
+                        .foregroundColor(.green)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.horizontal, 20)
+                }
+                
+                Spacer()
+                
+                Button {
+                    //
+                } label: {
+                    Text("Checkout Now")
+                        .frame(width: 340, height: 50)
+                        .background(Color.orange)
+                        .foregroundColor(.white)
+                        .cornerRadius(4)
+                }
             }
         }
     }

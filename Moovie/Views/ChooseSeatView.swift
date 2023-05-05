@@ -10,6 +10,8 @@ import URLImage
 
 struct ChooseSeatView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     let rows = ["A", "B", "C", "D"]
     let cols = ["1", "2", "3", "4"]
     
@@ -24,7 +26,7 @@ struct ChooseSeatView: View {
             VStack {
                 HStack {
                     Button {
-                        //
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "arrow.backward")
                             .resizable()
@@ -94,8 +96,8 @@ struct ChooseSeatView: View {
                         .foregroundColor(.white)
                         .cornerRadius(4)
                 }
-                
             }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
