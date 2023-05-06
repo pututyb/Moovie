@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct CheckoutView: View {
+    
+    @ObservedObject var sessionAuth = SessionAuth()
+    var selectedSeats: [String]
+    
     var body: some View {
         ZStack {
             Color("bg")
@@ -60,7 +64,7 @@ struct CheckoutView: View {
                 
                 VStack(spacing: 16) {
                     createRow("ID Order", "22081996")
-                    createRow("Seat Number", "B3, B4")
+                    createRow("Seat Number", "\(selectedSeats.joined(separator: ", "))")
                     createRow("Price", "Rp 50.000 x 2")
                     createRow("Fee", "Rp 2.500 x 2")
                     createRow("Total", "Rp 105.000")
@@ -78,10 +82,17 @@ struct CheckoutView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 20)
-                    Text("Rp 480.500")
-                        .foregroundColor(.green)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .padding(.horizontal, 20)
+                    if let wallet = sessionAuth.user?.wallet {
+                        Text("Rp \(String(format: "%.0f", wallet))")
+                            .foregroundColor(.green)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding(.horizontal, 20)
+                    } else {
+                        Text("Loading...")
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding(.horizontal, 20)
+                    }
                 }
                 
                 Spacer()
@@ -102,6 +113,6 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView()
+        CheckoutView(selectedSeats: ["B1", "B2"])
     }
 }

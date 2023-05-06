@@ -87,9 +87,7 @@ struct ChooseSeatView: View {
                 
                 Spacer()
                 
-                Button {
-                    //
-                } label: {
+                NavigationLink(destination: CheckoutView(selectedSeats: selectedSeats)) {
                     Text("Next")
                         .frame(width: 340, height: 50)
                         .background(Color.orange)
