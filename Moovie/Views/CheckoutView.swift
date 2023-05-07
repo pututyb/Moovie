@@ -10,6 +10,8 @@ import SwiftUI
 struct CheckoutView: View {
     
     @ObservedObject var sessionAuth = SessionAuth()
+    @State private var harga = 50000
+    @State private var fee = 2500
     var selectedSeats: [String]
     
     var body: some View {
@@ -47,6 +49,7 @@ struct CheckoutView: View {
                         Text("Name Of Film")
                             .foregroundColor(.white)
                             .font(.title2)
+                            .padding(.vertical)
                         Text("Action Horror")
                             .foregroundColor(.white)
                             .font(.body)
@@ -63,11 +66,10 @@ struct CheckoutView: View {
                     .padding()
                 
                 VStack(spacing: 16) {
-                    createRow("ID Order", "22081996")
                     createRow("Seat Number", "\(selectedSeats.joined(separator: ", "))")
-                    createRow("Price", "Rp 50.000 x 2")
-                    createRow("Fee", "Rp 2.500 x 2")
-                    createRow("Total", "Rp 105.000")
+                    createRow("Price", "Rp \(harga) x \(selectedSeats.count)")
+                    createRow("Fee", "Rp \(fee) x \(selectedSeats.count)")
+                    createRow("Total", "Rp \(harga * selectedSeats.count + fee)")
                 }
                 .foregroundColor(.white)
                 
@@ -83,8 +85,11 @@ struct CheckoutView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 20)
                     if let wallet = sessionAuth.user?.wallet {
-                        Text("Rp \(String(format: "%.0f", wallet))")
-                            .foregroundColor(.green)
+                        let total = harga * selectedSeats.count + fee
+                        let walletBalance = String(format: "%.0f", wallet)
+                        let walletColor: Color = Int(walletBalance) ?? 0 >= total ? .green : .red
+                        Text("Rp \(walletBalance)")
+                            .foregroundColor(walletColor)
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .padding(.horizontal, 20)
                     } else {
@@ -106,7 +111,9 @@ struct CheckoutView: View {
                         .foregroundColor(.white)
                         .cornerRadius(4)
                 }
+                .disabled(Int(sessionAuth.user?.wallet ?? 0) < (harga * selectedSeats.count + fee))
             }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
