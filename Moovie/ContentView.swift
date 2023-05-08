@@ -37,8 +37,9 @@ struct ContentView: View {
                                 Image(systemName: "creditcard")
                                     .foregroundColor(.white)
                                 
-                                Text("IDR \(sessionAuth.user?.wallet ?? 0.0)")
+                                Text(String(format: "IDR %.0f", sessionAuth.user?.wallet ?? 0.0))
                                     .foregroundColor(.white)
+                                
                             }
                             .padding(.leading)
                         }

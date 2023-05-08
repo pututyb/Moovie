@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CheckoutView: View {
-    
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var sessionAuth = SessionAuth()
     @State private var harga = 50000
     @State private var fee = 2500
@@ -22,7 +22,7 @@ struct CheckoutView: View {
             VStack {
                 HStack {
                     Button {
-                        //
+                        presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "arrow.backward")
                             .resizable()
@@ -111,7 +111,6 @@ struct CheckoutView: View {
                         .foregroundColor(.white)
                         .cornerRadius(4)
                 }
-                .disabled(Int(sessionAuth.user?.wallet ?? 0) < (harga * selectedSeats.count + fee))
             }
             .navigationBarBackButtonHidden(true)
         }
