@@ -16,7 +16,7 @@ struct ChooseSeatView: View {
     let cols = ["1", "2", "3", "4"]
     
     @State var selectedSeats: [String] = []
-    let movie: MovieData.Movie // Add this property to hold the movie data
+    let movie: MovieData.Movie
     
     var body: some View {
         ZStack {
@@ -87,7 +87,7 @@ struct ChooseSeatView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: CheckoutView(selectedSeats: selectedSeats)) {
+                NavigationLink(destination: CheckoutView(selectedSeats: selectedSeats, movie: movie)) {
                     Text("Next")
                         .frame(width: 340, height: 50)
                         .background(Color.orange)

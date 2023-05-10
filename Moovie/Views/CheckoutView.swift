@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct CheckoutView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var sessionAuth = SessionAuth()
     @State private var harga = 50000
     @State private var fee = 2500
-    var selectedSeats: [String]
+    @State var selectedSeats: [String]
+    
+    let movie: MovieData.Movie
     
     var body: some View {
         ZStack {
@@ -40,20 +43,29 @@ struct CheckoutView: View {
                 .padding(.horizontal)
                 
                 HStack(spacing: 30) {
-                    Image(systemName: "film")
-                        .resizable()
-                        .frame(width: 90, height: 90)
-                        .foregroundColor(.white)
+                    if let posterURL = movie.posterURL {
+                        URLImage(posterURL, content: { image in
+                            image
+                                .resizable()
+                                .frame(width: 90, height: 90)
+                                .foregroundColor(.white)
+                        })
+                    } else {
+                        Image(systemName: "film")
+                            .resizable()
+                            .frame(width: 90, height: 90)
+                            .foregroundColor(.white)
+                    }
                     
                     VStack {
-                        Text("Name Of Film")
+                        Text(movie.title)
                             .foregroundColor(.white)
                             .font(.title2)
                             .padding(.vertical)
                         Text("Action Horror")
                             .foregroundColor(.white)
                             .font(.body)
-                        Text("Rating 7/10")
+                        Text("\(movie.vote_average)")
                             .foregroundColor(.white)
                             .font(.footnote)
                     }
@@ -119,6 +131,6 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView(selectedSeats: ["B1", "B2"])
+        CheckoutView(selectedSeats: ["B1","B2"], movie: MovieData.Movie(id: 1, title: "Example Film", genre_ids: [12,18], overview: "Example Overview", release_date: "10-05-2023", popularity: 9.5, poster_path: "example/path.jpg", backdrop_path: "example/backpath.jpg", vote_average: 8.2, vote_count: 100))
     }
 }
