@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0812D7C62A0DD18A0060FEF1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0812D7C52A0DD18A0060FEF1 /* Transaction.swift */; };
 		081D0AB029D7DF68002DEEE8 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */; };
 		0835749429DAADC20036DE94 /* LanguageFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835749329DAADC20036DE94 /* LanguageFieldView.swift */; };
 		0852E08429ED64AD00E10CA2 /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852E08329ED64AD00E10CA2 /* GenresView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0812D7C52A0DD18A0060FEF1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		0835749329DAADC20036DE94 /* LanguageFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageFieldView.swift; sourceTree = "<group>"; };
 		0852E08329ED64AD00E10CA2 /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				0865A87929D02738001DEC44 /* User.swift */,
 				0899B9A929D2B6EC00DAC65E /* Movie.swift */,
+				0812D7C52A0DD18A0060FEF1 /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0812D7C62A0DD18A0060FEF1 /* Transaction.swift in Sources */,
 				088446A729ED32140092D290 /* UpcomingViewModel.swift in Sources */,
 				088C90C32A04CC3C0007CB42 /* RowCheckout.swift in Sources */,
 				08C3A14229D6E39700EC3CE7 /* SignupView.swift in Sources */,

@@ -71,7 +71,7 @@ struct MovieDetailView: View {
                     .fontWeight(.medium)
                     .foregroundColor(Color.white)
                 
-                Text(String(format: "%.1f /10", movie.vote_average))
+                Text(String(format: "%.1f/10", movie.vote_average))
                     .font(.headline)
                     .fontWeight(.medium)
                     .foregroundColor(Color.white)
