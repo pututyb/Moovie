@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0812D7C62A0DD18A0060FEF1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0812D7C52A0DD18A0060FEF1 /* Transaction.swift */; };
+		0812D7C82A0DD8140060FEF1 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0812D7C72A0DD8140060FEF1 /* TransactionViewModel.swift */; };
 		081D0AB029D7DF68002DEEE8 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */; };
 		0835749429DAADC20036DE94 /* LanguageFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835749329DAADC20036DE94 /* LanguageFieldView.swift */; };
 		0852E08429ED64AD00E10CA2 /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852E08329ED64AD00E10CA2 /* GenresView.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		0812D7C52A0DD18A0060FEF1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		0812D7C72A0DD8140060FEF1 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
 		081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		0835749329DAADC20036DE94 /* LanguageFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageFieldView.swift; sourceTree = "<group>"; };
 		0852E08329ED64AD00E10CA2 /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				0899B9AB29D2B76600DAC65E /* MovieViewModel.swift */,
 				08E42DB929DD682600363734 /* UserProfiling.swift */,
 				088446A629ED32140092D290 /* UpcomingViewModel.swift */,
+				0812D7C72A0DD8140060FEF1 /* TransactionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				0865A87E29D0614B001DEC44 /* LoginView.swift in Sources */,
 				088C85572A00B47600164983 /* ChooseSeatView.swift in Sources */,
 				0852E08429ED64AD00E10CA2 /* GenresView.swift in Sources */,
+				0812D7C82A0DD8140060FEF1 /* TransactionViewModel.swift in Sources */,
 				0899B9AC29D2B76600DAC65E /* MovieViewModel.swift in Sources */,
 				088446A529ED309B0092D290 /* NowPlayingView.swift in Sources */,
 				08EE4B3129EE6E6A00B53750 /* MovieDetailView.swift in Sources */,
