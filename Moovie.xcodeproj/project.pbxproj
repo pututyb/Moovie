@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0812D7C62A0DD18A0060FEF1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0812D7C52A0DD18A0060FEF1 /* Transaction.swift */; };
 		0812D7C82A0DD8140060FEF1 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0812D7C72A0DD8140060FEF1 /* TransactionViewModel.swift */; };
+		0818F1AF2A10925D003E9FF5 /* CheckoutSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0818F1AE2A10925D003E9FF5 /* CheckoutSuccess.swift */; };
 		081D0AB029D7DF68002DEEE8 /* InputFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */; };
 		0835749429DAADC20036DE94 /* LanguageFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835749329DAADC20036DE94 /* LanguageFieldView.swift */; };
 		0852E08429ED64AD00E10CA2 /* GenresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0852E08329ED64AD00E10CA2 /* GenresView.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		0812D7C52A0DD18A0060FEF1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		0812D7C72A0DD8140060FEF1 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		0818F1AE2A10925D003E9FF5 /* CheckoutSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutSuccess.swift; sourceTree = "<group>"; };
 		081D0AAF29D7DF68002DEEE8 /* InputFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldView.swift; sourceTree = "<group>"; };
 		0835749329DAADC20036DE94 /* LanguageFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageFieldView.swift; sourceTree = "<group>"; };
 		0852E08329ED64AD00E10CA2 /* GenresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresView.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				08EE4B3029EE6E6A00B53750 /* MovieDetailView.swift */,
 				088C85562A00B47600164983 /* ChooseSeatView.swift */,
 				08933BF92A026BDE00E66FC1 /* CheckoutView.swift */,
+				0818F1AE2A10925D003E9FF5 /* CheckoutSuccess.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				08933BFA2A026BDE00E66FC1 /* CheckoutView.swift in Sources */,
 				0865A86029D01402001DEC44 /* ContentView.swift in Sources */,
 				0865A85E29D01402001DEC44 /* MoovieApp.swift in Sources */,
+				0818F1AF2A10925D003E9FF5 /* CheckoutSuccess.swift in Sources */,
 				085C86EA29D9CF0300B38379 /* GenreFieldView.swift in Sources */,
 				0899B9AE29D2BB3900DAC65E /* UpcomingView.swift in Sources */,
 				0899B9AA29D2B6EC00DAC65E /* Movie.swift in Sources */,

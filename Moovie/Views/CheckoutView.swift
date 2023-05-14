@@ -139,7 +139,7 @@ struct CheckoutView: View {
                 Spacer()
                 
                 Button {
-                    let transaction = Transaction(movieTitle: movie.title, selectedSeats: selectedSeats, totalPrice: harga * selectedSeats.count + fee, createdAt: Date())
+                    transactionViewModel.saveTransaction(transaction: Transaction(movieTitle: movie.title, selectedSeats: selectedSeats, totalPrice: harga * selectedSeats.count + fee, createdAt: Date()))
                 } label: {
                     Text("Checkout Now")
                         .frame(width: 340, height: 50)

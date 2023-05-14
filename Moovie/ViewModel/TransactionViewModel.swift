@@ -10,11 +10,6 @@ import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-import Foundation
-import Firebase
-import FirebaseFirestore
-import FirebaseFirestoreSwift
-
 class TransactionViewModel: ObservableObject {
     private var db = Firestore.firestore()
     
